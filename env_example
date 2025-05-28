@@ -1,0 +1,20 @@
+K8S_CONTEXT = 'minikube'
+BOOTSTRAP_OBP_APIHOST = 'http://obp-api-internal-route-obp.apps-crc.testing/'
+BOOTSTRAP_OBP_USERNAME = "fredhans8"
+BOOTSTRAP_OBP_PASSWORD = "thisislongerthansixteen"
+# Only for legacy purposes, if your obp version does not support creating super user from props.
+BOOTSTRAP_OBP_USER_EXISTS = 'true'
+BOOTSTRAP_OBP_FIRST_NAME = "tob"
+BOOTSTRAP_OBP_LAST_NAME = "wol"
+BOOTSTRAP_OBP_EMAIL = "fdfdfa@fafdsa.de"
+OBP_API_EXPLORER_SECRET_NAME = "api explorer"
+OBP_API_EXPLORER_NAMESPACE = "obp"
+OBP_API_EXPLORER_HOSTNAME = "api-explorer.openbankproject.com"
+OBP_API_MANAGER_SECRET_NAME = "api manager"
+OBP_API_MANAGER_NAMESPACE = "obp"
+OBP_API_MANAGER_HOSTNAME = "api-manager.openbankproject.com"
+REGISTER_WITH_KEYCLOAK = 'false'
+KEYCLOAK_SERVER = 'https://keycloak.apps-crc.testing/auth'
+KEYCLOAK_USERNAME = 'admin'
+KEYCLOAK_PASSWORD = 'admin'
+KEYCLOAK_REALM = 'master'
