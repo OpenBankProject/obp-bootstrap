@@ -1,0 +1,10 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: k8s
+  name: obp-bootstrap
+rules:
+- apiGroups: [""]
+  resources: [ "secrets", "deployments"]
+  resourceNames: ["apimanager-credentials", "obp-apimanager-deployment"]
+  verbs: ["get", "update"]

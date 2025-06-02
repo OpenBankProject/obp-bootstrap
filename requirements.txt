@@ -1,0 +1,6 @@
+selenium
+pytest
+kubernetes
+python-dotenv
+obp-python-apiv5.1
+python-keycloak

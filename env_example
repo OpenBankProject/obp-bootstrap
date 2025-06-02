@@ -1,0 +1,25 @@
+# K8S_CONTEXT is only needed if running locally
+K8S_CONTEXT = 'minikube'
+BOOTSTRAP_OBP_APIHOST = 'http://obp-api-internal-route-obp.apps-crc.testing/'
+BOOTSTRAP_OBP_USERNAME = "fredhans8"
+BOOTSTRAP_OBP_PASSWORD = "thisislongerthansixteen"
+# For legacy purposes, if your obp version does not support creating super user from props, or you want to use a different user
+BOOTSTRAP_OBP_USER_EXISTS = 'true'
+
+# Needed for creating new user ==================
+BOOTSTRAP_OBP_FIRST_NAME = "tob"
+BOOTSTRAP_OBP_LAST_NAME = "wol"
+BOOTSTRAP_OBP_EMAIL = "fdfdfa@fafdsa.de"
+K8S_OBP_API_NAMESPACE = "obp"
+K8S_OBP_API_DEPLOYMENT = "obp-api"
+# ================================================
+
+APP_NAME = "api explorer"
+# Name of the applications secret object in k8s
+APP_K8S_SECRET_NAME = "api explorer"
+# 'OAUTH_CONSUMER_KEY' for api manager, 'VITE_OBP_CONSUMER_KEY' for api explorer
+APP_K8S_SECRET_KEY_NAME = "VITE_OBP_CONSUMER_KEY"
+# 'OAUTH_CONSUMER_SECRET' for api manager, 'VITE_OBP_CONSUMER_SECRET' for api explorer
+APP_K8S_CLIENT_SECRET_NAME = "VITE_OBP_CONSUMER_SECRET"
+APP_NAMESPACE = "obp"
+APP_HOSTNAME = "api-explorer.openbankproject.com"
