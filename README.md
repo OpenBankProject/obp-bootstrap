@@ -1,9 +1,11 @@
 # obp-bootstrap
-OBP deployment automation script
+OBP deployment automation script.
+
 Running host/image needs chrome installed and the chromedriver executable available in the PATH.
 
 ### Authenticating to K8s
 If run locally, the script will use your local kubeconfig file to authenticate to the Kubernetes cluster.
+
 Running in the cluster, it will look for "/var/run/secrets/kubernetes.io/serviceaccount/token".
 
 ### Creating OBP User
@@ -12,6 +14,7 @@ If you have not turned e-mail validation off (setting OBP_AUTHUSER_SKIPEMAILVALI
 ### Creating Consumer Keys
 Done via Selenium webdriver. Running host/image needs chrome installed and the chromedriver executable available in the PATH.
 The script will read the existing consumer key pair from the k8s secret objects of the running api explorer and api manager deployments.
+
 It will only create consumer keys if 'VITE_OBP_CONSUMER_KEY' (api explorer) or 'OAUTH_CONSUMER_KEY' api manager) are:
 - either not set
 - set to 'None' or 'some_value'
