@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: bootstrap-obp
+  namespace: k8s
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      containers:
+      - name: bootstrap-obp
+        image: docker.io/tawoe/bootstrap-obp:latest
+        env:
+          - name: BOOTSTRAP_OBP_APIHOST
+            value: 'https://k8s.openbankproject.com'
+          - name: BOOTSTRAP_OBP_API_PORTALHOST
+            value: 'https://k8s-portal.openbankproject.com'
+          - name: BOOTSTRAP_OBP_USERNAME
+            value: 'obpuser'
+          - name: BOOTSTRAP_OBP_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: bootstrap-credentials
+                key: BOOTSTRAP_OBP_PASSWORD
+          - name: BOOTSTRAP_OBP_EMAIL
+            value: 'test@test.kube'
+          - name: BOOTSTRAP_OBP_USER_EXISTS
+            value: 'true'
+          - name: REGISTER_WITH_KEYCLOAK
+            value: 'false'
+          - name: APP_NAME
+            value: 'api manager'
+          - name: APP_K8S_SECRET_NAME
+            value: 'apimanager-credentials'
+          - name: APP_NAMESPACE
+            value: 'k8s'
+          - name: APP_HOSTNAME
+            value: 'api-explorer.openbankproject.com'
+      restartPolicy: Never

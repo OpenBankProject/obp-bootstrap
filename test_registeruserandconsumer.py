@@ -20,6 +20,7 @@ class TestRegisteruserandconsumer():
 		chrome_options.add_argument("--disable-gpu")
 		chrome_options.add_argument("--no-sandbox")  # linux only
 		chrome_options.add_argument("--window-size=1920,1080")
+		chrome_options.add_argument("--headless")
 		try:
 			self.driver = webdriver.Chrome(options=chrome_options)
 			self.vars = {}
