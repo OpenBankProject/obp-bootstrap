@@ -33,17 +33,17 @@ k8s_app_client_key = k8s_client.get_secret_value(
 if k8s_app_client_key not in (None, "None", "some_value"):
 	app_credentials_missing = False
 if app_credentials_missing:
+	print("No consumer keys found in Kubernetes secrets, creating new ones...")
 	if bootstrap_config.register_with_keycloak:
+		# Apps do not support keycloak registration yet.
 		from keycloak_import import create_app_client
 		print("Registering with Keycloak is not supported yet.")
 		app_credentials = create_app_client()
-		# IF k8s_context is set, we assume running locally and manually, printing the credentials
-		if bootstrap_config.k8s_context:
-			print(f"Running locally, printing the key, secret: {app_credentials}")
+
 	else:
 			app_credentials = create_consumer_keys()
 	key, secret = app_credentials
-	k8s_client.update_secret(
+	update_key = k8s_client.update_secret(
 		secret_name=bootstrap_config.app_k8s_secret_name,
 		namespace=bootstrap_config.app_namespace,
 		key=bootstrap_config.app_k8s_client_key_name,

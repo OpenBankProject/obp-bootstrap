@@ -7,6 +7,7 @@ def create_consumer_keys():
 	##client.use_firefox()
 	sleep(3)
 	client.login(bootstrap_config.obp_api_portalhost, bootstrap_config.obp_username, bootstrap_config.obp_password)
+	sleep(10)
 
 	try:
 		auth_key, auth_secret = client.register_consumer(

@@ -9,7 +9,7 @@ spec:
     spec:
       containers:
       - name: bootstrap-obp
-        image: docker.io/tawoe/bootstrap-obp:latest
+        image: myregistry/my-obp-bootstrap-repo/bootstrap-obp:latest
         env:
           - name: BOOTSTRAP_OBP_APIHOST
             value: 'https://k8s.openbankproject.com'

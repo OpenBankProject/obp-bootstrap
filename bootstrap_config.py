@@ -4,8 +4,7 @@ from os import getenv
 
 load_dotenv()
 k8s_context = getenv('K8S_CONTEXT')
-k8s_namespace = getenv('K8S_NAMESPACE')
-k8s_obp_api_deployment = getenv('K8S_OBP_API_DEPLOYMENT')
+
 obp_apihost = getenv('BOOTSTRAP_OBP_APIHOST')
 obp_api_portalhost = getenv('BOOTSTRAP_OBP_API_PORTALHOST', obp_apihost)
 obp_username = getenv('BOOTSTRAP_OBP_USERNAME')
@@ -14,6 +13,8 @@ obp_user_exists = getenv('BOOTSTRAP_OBP_USER_EXISTS', 'true').lower() == 'true'
 if not obp_user_exists:
 	obp_first_name = getenv('BOOTSTRAP_OBP_FIRST_NAME', 'first_name')
 	obp_last_name = getenv('BOOTSTRAP_OBP_LAST_NAME', 'last_name')
+	k8s_obp_api_namespace = getenv('K8S_OBP_API_NAMESPACE')
+	k8s_obp_api_deployment = getenv('K8S_OBP_API_DEPLOYMENT')
 obp_email = getenv('BOOTSTRAP_OBP_EMAIL','admin@mydomain.kube')
 app_name = getenv("APP_NAME", "api-explorer")
 app_k8s_secret_name = getenv("APP_K8S_SECRET_NAME", "my-api-explorer-secret")
