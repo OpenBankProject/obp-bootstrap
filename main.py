@@ -3,6 +3,7 @@ from kubernetes_api_client import KubernetesApiClient
 import bootstrap_config
 from create_user import create_obp_user
 from create_consumer_keys import create_consumer_keys
+from create_consumer_keys_api import create_obp_consumer_keys
 from check_api_alive import wait_for_obp_api
 
 k8s_client = KubernetesApiClient(context=bootstrap_config.k8s_context)
@@ -36,9 +37,9 @@ if app_credentials_missing:
 	print("No consumer keys found in Kubernetes secrets, creating new ones...")
 	if bootstrap_config.register_with_keycloak:
 		# Apps do not support keycloak registration yet.
-		from keycloak_import import create_app_client
-		print("Registering with Keycloak is not supported yet.")
-		app_credentials = create_app_client()
+		from keycloak_import import bootstrap_bearer_token
+		token = bootstrap_bearer_token()
+		app_credentials = create_obp_consumer_keys(token)
 
 	else:
 			app_credentials = create_consumer_keys()
