@@ -27,6 +27,9 @@ if register_with_keycloak:
 	keycloak_server = getenv("KEYCLOAK_SERVER")
 	if keycloak_server is None:
 		raise RuntimeError("Environment variable 'KEYCLOAK_SERVER' is required but not set.")
+	keycloak_deploy_client_id = getenv("KEYCLOAK_DEPLOY_CLIENT_ID")
+	if keycloak_deploy_client_id is None:
+		raise RuntimeError("Environment variable 'KEYCLOAK_DEPLOY_CLIENT_ID' is required but not set.")
 	keycloak_username = getenv("KEYCLOAK_USERNAME")
 	if keycloak_username is None:
 		raise RuntimeError("Environment variable 'KEYCLOAK_USERNAME' is required but not set.")
