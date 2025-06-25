@@ -14,6 +14,16 @@ K8S_OBP_API_NAMESPACE = "obp"
 K8S_OBP_API_DEPLOYMENT = "obp-api"
 # ================================================
 
+# Set to true if you want to create consumer keys via obp api and keycloak bearer token instead of via portal page
+REGISTER_WITH_KEYCLOAK = "false"
+KEYCLOAK_SERVER = "https://mykeycloak.server
+# KEYCLOAK_DEPLOY_CLIENT_ID needs to be the same as configured in OBP_OAUTH2_KEYCLOAK_RESOURCE_ACCESS_KEY_NAME_TO_TRUST
+KEYCLOAK_DEPLOY_CLIENT_ID = "open-bank-project"
+KEYCLOAK_USERNAME = "keycloakadmin"
+KEYCLOAK_PASSWORD = "keycloakpasswd"
+KEYCLOAK_REALM = myrealm
+
+
 APP_NAME = "api explorer"
 # Name of the applications secret object in k8s
 APP_K8S_SECRET_NAME = "api explorer"
